@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Belfort Integrated Services</title>
+    <meta name="description" content="One Team, Total Control. We Optimize Your Assets From Groundwork to Geek-work." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              belfort: {
+                red: '#be222e',
+                black: '#000000',
+                white: '#ffffff',
+                grey: '#57565b',
+                lightGrey: '#f8f8f8',
+              }
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+              'fade-in': 'fadeIn 1s ease-out forwards',
+            },
+            keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #be222e; }
+      ::-webkit-scrollbar-thumb:hover { background: #991b25; }
+      html { scroll-behavior: smooth; }
+      .chat-message { max-width: 80%; border-radius: 1rem; padding: 0.75rem 1rem; font-size: 0.875rem; margin-bottom: 1rem; }
+      .chat-user { background-color: #be222e; color: white; border-bottom-right-radius: 0; margin-left: auto; }
+      .chat-model { background-color: white; color: #1f2937; border: 1px solid #e5e7eb; border-bottom-left-radius: 0; margin-right: auto; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+</head>
+  <body class="font-sans antialiased">
+    
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex items-center justify-between h-20 md:h-24">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center space-x-2 group">
+            <div class="relative w-10 h-12">
+              <svg viewBox="0 0 100 120" class="w-full h-full drop-shadow-sm">
+                <path d="M10 10 H90 V80 C90 105 50 120 50 120 C50 120 10 105 10 80 V10 Z" fill="#be222e" />
+                <text x="50" y="85" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Montserrat">B</text>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span id="logo-text" class="text-2xl font-bold tracking-tight leading-none transition-colors">Belfort</span>
+              <span id="logo-sub" class="text-[10px] font-medium tracking-widest uppercase text-gray-400">Integrated Services</span>
+            </div>
+          </a>
+
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 relative group">Home <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-belfort-red transition-all duration-300 group-hover:w-full group-hover:left-0"></span></a>
+            <a href="about.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 relative group">About <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-belfort-red transition-all duration-300 group-hover:w-full group-hover:left-0"></span></a>
+            <div class="relative group">
+              <a href="services.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 relative">Services <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-belfort-red transition-all duration-300 group-hover:w-full group-hover:left-0"></span></a>
+            </div>
+            <a href="portfolio.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 relative group">Portfolio <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-belfort-red transition-all duration-300 group-hover:w-full group-hover:left-0"></span></a>
+            <a href="contact.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 relative group">Contact <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-belfort-red transition-all duration-300 group-hover:w-full group-hover:left-0"></span></a>
+          </nav>
+
+          <div class="hidden md:block">
+            <a href="contact.html" id="header-cta" class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 bg-white text-belfort-red hover:bg-gray-100 shadow-lg">Get A Quote</a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden flex-col h-full justify-center px-8 space-y-8 transition-transform duration-300">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="index.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">About</a>
+        <a href="services.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Services</a>
+        <a href="portfolio.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Portfolio</a>
+        <a href="contact.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Contact</a>
+        <div class="pt-8 border-t border-gray-800">
+          <a href="contact.html" class="w-full inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-belfort-red text-white hover:bg-[#a01d27]">Get A Quote</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- Hero Section -->
+      <div class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center z-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.4);"></div>
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white space-y-8 pt-20">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-up">
+            From Concept to Care:<br />
+            <span class="text-white">The Belfort Standard</span>
+          </h1>
+          <p class="text-lg md:text-xl lg:text-2xl font-light text-gray-200 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+            One Team, Total Control. We Optimize Your Assets From Groundwork to Geek-work.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style="animation-delay: 0.4s;">
+            <a href="portfolio.html" class="w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 bg-belfort-red text-white hover:bg-[#a01d27] shadow-lg">Explore Properties</a>
+            <a href="about.html" class="w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 border-2 border-white text-white hover:bg-white hover:text-belfort-black">Learn About Us</a>
+          </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center p-2">
+            <div class="w-1 h-2 bg-white rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview Section -->
+      <section class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-4xl mx-auto mb-16">
+            <span class="text-belfort-red text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Who We Are</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">Belfort Integrated Services: Connecting Industries. Creating Value.</h2>
+            <p class="text-belfort-grey text-lg leading-relaxed">
+              We are a multidisciplinary powerhouse based in Abuja, Nigeria. By integrating real estate, industrial cleaning, interior design, technology, and agriculture under one roof, we deliver seamless, high-value solutions that traditional siloed companies cannot match.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-100 pt-12">
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-belfort-red mb-2">12+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-belfort-red mb-2">450+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Projects Completed</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-belfort-red mb-2">6</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Industries Served</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-belfort-red mb-2">300+</div>
+              <div class="text-sm text-gray-500 uppercase tracking-wider">Satisfied Clients</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-belfort-lightGrey">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex justify-between items-end mb-12">
+            <div>
+              <span class="text-belfort-red text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Our Expertise</span>
+              <h2 class="text-3xl font-bold text-black">Integrated Verticals</h2>
+            </div>
+            <a href="services.html" class="hidden md:flex items-center text-sm font-bold uppercase tracking-wider hover:text-belfort-red transition-colors">
+              View All Services <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <a href="services.html" class="group block h-full">
+              <div class="bg-white p-8 shadow-sm border border-gray-100 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-belfort-red/30">
+                <div>
+                  <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-belfort-red group-hover:text-white transition-colors duration-300">
+                    <i data-lucide="building-2" class="w-6 h-6"></i>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-black group-hover:text-belfort-red transition-colors">Belfort Real Estate</h3>
+                  <p class="text-belfort-grey text-sm leading-relaxed mb-6">Premium property management, sales, and development services.</p>
+                </div>
+                <div class="flex items-center text-belfort-red text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  Learn More <i data-lucide="arrow-right" class="ml-2 w-3 h-3"></i>
+                </div>
+              </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="services.html" class="group block h-full">
+              <div class="bg-white p-8 shadow-sm border border-gray-100 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-belfort-red/30">
+                <div>
+                  <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-belfort-red group-hover:text-white transition-colors duration-300">
+                    <i data-lucide="spray-can" class="w-6 h-6"></i>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-black group-hover:text-belfort-red transition-colors">Belfort Industrial Cleaning</h3>
+                  <p class="text-belfort-grey text-sm leading-relaxed mb-6">Specialized cleaning for commercial and industrial facilities.</p>
+                </div>
+                <div class="flex items-center text-belfort-red text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  Learn More <i data-lucide="arrow-right" class="ml-2 w-3 h-3"></i>
+                </div>
+              </div>
+            </a>
+            <!-- Card 3 -->
+            <a href="services.html" class="group block h-full">
+              <div class="bg-white p-8 shadow-sm border border-gray-100 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-belfort-red/30">
+                <div>
+                  <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-belfort-red group-hover:text-white transition-colors duration-300">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-black group-hover:text-belfort-red transition-colors">Belfort Tech Solutions</h3>
+                  <p class="text-belfort-grey text-sm leading-relaxed mb-6">Smart home automation and IT infrastructure.</p>
+                </div>
+                <div class="flex items-center text-belfort-red text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  Learn More <i data-lucide="arrow-right" class="ml-2 w-3 h-3"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillars Section -->
+      <div class="bg-black py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
+          <h2 class="text-white text-3xl font-bold mb-12 text-center">Our Pillars of Excellence</h2>
+          <div class="flex flex-wrap justify-center gap-6">
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] text-center hover:bg-gray-800 transition-colors">
+              <div class="w-10 h-10 bg-belfort-red/20 text-belfort-red rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="zap" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold mb-2">Ingenuity</h3>
+              <p class="text-gray-500 text-sm">Creative problem solving.</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] text-center hover:bg-gray-800 transition-colors">
+              <div class="w-10 h-10 bg-belfort-red/20 text-belfort-red rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="briefcase" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold mb-2">Integration</h3>
+              <p class="text-gray-500 text-sm">Seamless service delivery.</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] text-center hover:bg-gray-800 transition-colors">
+              <div class="w-10 h-10 bg-belfort-red/20 text-belfort-red rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="award" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold mb-2">Distinction</h3>
+              <p class="text-gray-500 text-sm">Standing out through quality.</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] text-center hover:bg-gray-800 transition-colors">
+              <div class="w-10 h-10 bg-belfort-red/20 text-belfort-red rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold mb-2">Reliability</h3>
+              <p class="text-gray-500 text-sm">Consistent performance.</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] text-center hover:bg-gray-800 transition-colors">
+              <div class="w-10 h-10 bg-belfort-red/20 text-belfort-red rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="users" class="w-5 h-5"></i></div>
+              <h3 class="text-white font-bold mb-2">Commitment</h3>
+              <p class="text-gray-500 text-sm">Dedication to client success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Section -->
+      <section class="py-20 md:py-28 px-6 md:px-12 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-black mb-4">Featured Properties & Projects</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Discover our recent work across Abuja's most prestigious locations.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="group relative overflow-hidden rounded-lg aspect-[3/4] cursor-pointer lg:col-span-2">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop" alt="The Onyx Towers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <span class="text-belfort-red text-xs font-bold uppercase mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Real Estate</span>
+                <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">The Onyx Towers</h3>
+                <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Maitama, Abuja</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg aspect-[3/4] cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" alt="Apex Hub" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <span class="text-belfort-red text-xs font-bold uppercase mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Industrial Cleaning</span>
+                <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Apex Industrial Hub</h3>
+                <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Idu Industrial Layout</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg aspect-[3/4] cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop" alt="Villa Serene" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <span class="text-belfort-red text-xs font-bold uppercase mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Interiors</span>
+                <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Villa Serene</h3>
+                <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Asokoro, Abuja</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <a href="portfolio.html" class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 bg-belfort-black text-white hover:bg-gray-900 shadow-md">View Full Portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-belfort-lightGrey">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-16">Client Success Stories</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 shadow-sm border border-gray-100 text-center relative pt-12">
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-belfort-red text-white flex items-center justify-center rounded-full shadow-lg">
+                <span class="text-2xl font-serif">"</span>
+              </div>
+              <p class="text-gray-600 italic mb-6">"Belfort’s integrated approach saved us time and money. Having one team handle construction cleaning and interior finishing was a game changer."</p>
+              <div>
+                <div class="font-bold text-black">Emmanuel Okonkwo</div>
+                <div class="text-xs text-belfort-red uppercase tracking-wide font-bold">CEO, Zenith Structures</div>
+              </div>
+            </div>
+            <div class="bg-white p-8 shadow-sm border border-gray-100 text-center relative pt-12">
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-belfort-red text-white flex items-center justify-center rounded-full shadow-lg">
+                <span class="text-2xl font-serif">"</span>
+              </div>
+              <p class="text-gray-600 italic mb-6">"The attention to detail in their real estate development is unmatched in Abuja. Truly a luxury experience from start to finish."</p>
+              <div>
+                <div class="font-bold text-black">Aisha Bello</div>
+                <div class="text-xs text-belfort-red uppercase tracking-wide font-bold">Homeowner</div>
+              </div>
+            </div>
+            <div class="bg-white p-8 shadow-sm border border-gray-100 text-center relative pt-12">
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-belfort-red text-white flex items-center justify-center rounded-full shadow-lg">
+                <span class="text-2xl font-serif">"</span>
+              </div>
+              <p class="text-gray-600 italic mb-6">"Their tech solutions team modernized our security infrastructure seamlessly. Professional and highly skilled."</p>
+              <div>
+                <div class="font-bold text-black">David West</div>
+                <div class="text-xs text-belfort-red uppercase tracking-wide font-bold">Facility Manager</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="relative py-28 px-6 bg-belfort-red overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Space?</h2>
+          <p class="text-xl text-white/90 mb-10 font-light">Whether it's finding your dream home, maintaining your facility, or upgrading your tech, Belfort is here to serve.</p>
+          <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 bg-white text-belfort-red hover:bg-gray-100 shadow-lg min-w-[200px]">Contact Us Today</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div class="space-y-6">
+            <a href="index.html" class="flex items-center space-x-2">
+              <div class="relative w-8 h-10">
+                <svg viewBox="0 0 100 120" class="w-full h-full">
+                  <path d="M10 10 H90 V80 C90 105 50 120 50 120 C50 120 10 105 10 80 V10 Z" fill="#be222e" />
+                  <text x="50" y="85" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Montserrat">B</text>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xl font-bold tracking-tight text-white">Belfort</span>
+              </div>
+            </a>
+            <p class="text-gray-400 leading-relaxed text-sm">One Team, Total Control. We Optimize Your Assets From Groundwork to Geek-work.</p>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6 text-white uppercase tracking-wider">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="about.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">About</a></li>
+              <li><a href="services.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Services</a></li>
+              <li><a href="portfolio.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Portfolio</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6 text-white uppercase tracking-wider">Services</h4>
+            <ul class="space-y-3">
+              <li><a href="services.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Real Estate</a></li>
+              <li><a href="services.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Industrial Cleaning</a></li>
+              <li><a href="services.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Interiors</a></li>
+              <li><a href="services.html" class="text-gray-400 hover:text-belfort-red transition-colors text-sm">Tech Solutions</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6 text-white uppercase tracking-wider">Contact</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3 text-gray-400 text-sm">
+                <i data-lucide="map-pin" class="text-belfort-red mt-1 shrink-0 w-4 h-4"></i>
+                <span>123 Maitama District,<br />Abuja, Nigeria</span>
+              </li>
+              <li class="flex items-center space-x-3 text-gray-400 text-sm">
+                <i data-lucide="phone" class="text-belfort-red shrink-0 w-4 h-4"></i>
+                <span>+234 800 BELFORT</span>
+              </li>
+              <li class="flex items-center space-x-3 text-gray-400 text-sm">
+                <i data-lucide="mail" class="text-belfort-red shrink-0 w-4 h-4"></i>
+                <span>info@belfortintegrated.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+          <p>&copy; 2024 Belfort Integrated Services. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CHAT WIDGET -->
+    <button id="chat-toggle" class="fixed bottom-6 right-6 z-40 bg-belfort-red text-white p-4 rounded-full shadow-2xl hover:bg-[#a01d27] transition-transform duration-300 hover:scale-110 flex items-center justify-center">
+      <i data-lucide="message-square" class="w-6 h-6"></i>
+    </button>
+
+    <div id="chat-window" class="fixed bottom-6 right-6 z-50 w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right border border-gray-100 scale-0 opacity-0 pointer-events-none" style="height: 500px;">
+        <div class="bg-black text-white p-4 flex justify-between items-center">
+            <div>
+                <h3 class="font-bold text-sm">Belfort Assistant</h3>
+                <span class="text-xs text-green-400 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Online</span>
+            </div>
+            <button id="chat-close" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-4 bg-gray-50 flex flex-col">
+            <div class="chat-message chat-model">Hello! I'm the Belfort Integrated Services AI Assistant. How can I help you today?</div>
+        </div>
+        <div class="p-4 bg-white border-t border-gray-100">
+            <div class="flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 bg-gray-100 border-0 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-belfort-red focus:bg-white transition-all outline-none">
+                <button id="chat-send" class="p-2 bg-belfort-red text-white rounded-full hover:bg-[#a01d27] disabled:opacity-50"><i data-lucide="send" class="w-4 h-4"></i></button>
+            </div>
+            <div class="text-[10px] text-center text-gray-400 mt-2">Powered by Gemini AI</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Header Scroll Effect
+      const header = document.getElementById('main-header');
+      const logoText = document.getElementById('logo-text');
+      const logoSub = document.getElementById('logo-sub');
+      const headerCta = document.getElementById('header-cta');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      
+      function updateHeader() {
+        if (window.scrollY > 50) {
+          header.classList.remove('bg-transparent', 'text-white');
+          header.classList.add('bg-white', 'shadow-md', 'text-black');
+          
+          if(logoText) logoText.classList.add('text-black');
+          if(logoText) logoText.classList.remove('text-white');
+          
+          if(headerCta) {
+            headerCta.classList.remove('bg-white', 'text-belfort-red');
+            headerCta.classList.add('bg-belfort-red', 'text-white');
+          }
+          
+          if(mobileMenuBtn) mobileMenuBtn.classList.remove('text-white');
+          if(mobileMenuBtn) mobileMenuBtn.classList.add('text-black');
+
+          navLinks.forEach(link => link.classList.add('text-black'));
+        } else {
+          header.classList.add('bg-transparent', 'text-white');
+          header.classList.remove('bg-white', 'shadow-md', 'text-black');
+          
+          if(logoText) logoText.classList.remove('text-black');
+          if(logoText) logoText.classList.add('text-white');
+          
+          if(headerCta) {
+            headerCta.classList.add('bg-white', 'text-belfort-red');
+            headerCta.classList.remove('bg-belfort-red', 'text-white');
+          }
+
+          if(mobileMenuBtn) mobileMenuBtn.classList.add('text-white');
+          if(mobileMenuBtn) mobileMenuBtn.classList.remove('text-black');
+
+          navLinks.forEach(link => link.classList.remove('text-black'));
+        }
+      }
+      
+      // Initial check for non-home pages that reuse header
+      if(document.title.includes("Home")) {
+          window.addEventListener('scroll', updateHeader);
+          updateHeader(); // Run on load
+      } else {
+          // For other pages, keep header solid
+          header.classList.remove('bg-transparent', 'text-white');
+          header.classList.add('bg-white', 'shadow-md', 'text-black');
+          if(logoText) logoText.classList.add('text-black');
+          if(headerCta) {
+             headerCta.classList.remove('bg-white', 'text-belfort-red');
+             headerCta.classList.add('bg-belfort-red', 'text-white');
+          }
+          if(mobileMenuBtn) mobileMenuBtn.classList.add('text-black');
+          navLinks.forEach(link => link.classList.add('text-black'));
+      }
+
+      // Mobile Menu
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMenuBtn = document.getElementById('close-menu-btn');
+      
+      if(mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+          });
+      }
+      if(closeMenuBtn) {
+          closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+          });
+      }
+
+    </script>
+
+    <!-- Chat Widget Logic -->
+    <script type="module">
+      import { GoogleGenAI } from "https://esm.sh/@google/genai@^1.33.0";
+
+      const chatToggle = document.getElementById('chat-toggle');
+      const chatWindow = document.getElementById('chat-window');
+      const chatClose = document.getElementById('chat-close');
+      const chatInput = document.getElementById('chat-input');
+      const chatSend = document.getElementById('chat-send');
+      const messagesContainer = document.getElementById('chat-messages');
+
+      let isOpen = false;
+
+      function toggleChat() {
+        isOpen = !isOpen;
+        if (isOpen) {
+          chatWindow.classList.remove('scale-0', 'opacity-0', 'pointer-events-none');
+          chatWindow.classList.add('scale-100', 'opacity-100');
+          chatToggle.classList.add('hidden');
+        } else {
+          chatWindow.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
+          chatWindow.classList.remove('scale-100', 'opacity-100');
+          chatToggle.classList.remove('hidden');
+        }
+      }
+
+      chatToggle.addEventListener('click', toggleChat);
+      chatClose.addEventListener('click', toggleChat);
+
+      function addMessage(text, role) {
+        const div = document.createElement('div');
+        div.className = `chat-message ${role === 'user' ? 'chat-user' : 'chat-model'}`;
+        div.textContent = text;
+        messagesContainer.appendChild(div);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      async function sendMessage() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        addMessage(text, 'user');
+        chatInput.value = '';
+        chatInput.disabled = true;
+        chatSend.disabled = true;
+
+        try {
+            // Note: In a real static site, keys must be secured via backend proxy.
+            // This is for demonstration based on the prompt's environment variable requirement.
+            const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : ''; 
+            
+            if(!apiKey) {
+                setTimeout(() => {
+                    addMessage("API Key missing. Please configure the environment.", 'model');
+                    chatInput.disabled = false;
+                    chatSend.disabled = false;
+                }, 500);
+                return;
+            }
+
+            const ai = new GoogleGenAI({ apiKey });
+            const systemContext = "You are the AI assistant for Belfort Integrated Services. We offer Real Estate, Industrial Cleaning, and Tech Solutions. Be professional and helpful.";
+            
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: [{ role: 'user', parts: [{ text: systemContext + "\n\nUser: " + text }] }],
+            });
+
+            addMessage(response.text || "I apologize, I couldn't process that.", 'model');
+
+        } catch (error) {
+            console.error(error);
+            addMessage("Error connecting to AI service.", 'model');
+        } finally {
+            chatInput.disabled = false;
+            chatSend.disabled = false;
+            chatInput.focus();
+        }
+      }
+
+      chatSend.addEventListener('click', sendMessage);
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Belfort Integrated Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              belfort: { red: '#be222e', black: '#000000', white: '#ffffff', grey: '#57565b', lightGrey: '#f8f8f8' }
+            },
+            fontFamily: { sans: ['Montserrat', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <style>html { scroll-behavior: smooth; }</style>
+  </head>
+  <body class="font-sans antialiased">
+    <!-- Header Reuse (Simplified for brevity, assume consistent with index.html) -->
+    <div id="header-placeholder"></div>
+    <!-- Load Header/Footer via simple script or copy-paste. For this output, I will copy main structure. -->
+    
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md text-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex items-center justify-between h-20 md:h-24">
+          <a href="index.html" class="flex items-center space-x-2 group">
+            <div class="relative w-10 h-12">
+              <svg viewBox="0 0 100 120" class="w-full h-full drop-shadow-sm">
+                <path d="M10 10 H90 V80 C90 105 50 120 50 120 C50 120 10 105 10 80 V10 Z" fill="#be222e" />
+                <text x="50" y="85" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Montserrat">B</text>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-bold tracking-tight leading-none text-black">Belfort</span>
+              <span class="text-[10px] font-medium tracking-widest uppercase text-gray-500">Integrated Services</span>
+            </div>
+          </a>
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 text-black">Home</a>
+            <a href="about.html" class="nav-link text-sm font-semibold tracking-wide uppercase text-belfort-red py-2 text-black">About</a>
+            <a href="services.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 text-black">Services</a>
+            <a href="portfolio.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 text-black">Portfolio</a>
+            <a href="contact.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red transition-colors py-2 text-black">Contact</a>
+          </nav>
+          <div class="hidden md:block">
+            <a href="contact.html" class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-wider bg-belfort-red text-white hover:bg-[#a01d27] shadow-lg">Get A Quote</a>
+          </div>
+           <!-- Mobile Toggle -->
+           <button id="mobile-menu-btn" class="md:hidden p-2 text-black"><i data-lucide="menu" class="w-7 h-7"></i></button>
+        </div>
+      </div>
+    </header>
+
+     <!-- Mobile Menu Overlay -->
+     <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden flex-col h-full justify-center px-8 space-y-8 transition-transform duration-300">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <a href="index.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">About</a>
+        <a href="services.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Services</a>
+        <a href="portfolio.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Portfolio</a>
+        <a href="contact.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Contact</a>
+    </div>
+
+    <main>
+      <div class="bg-black text-white pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">About Belfort</h1>
+          <p class="text-gray-400 max-w-2xl mx-auto text-lg">Building a legacy of excellence in Abuja and beyond through integrated service delivery.</p>
+        </div>
+      </div>
+
+      <section class="py-20 md:py-28 px-6 md:px-12 lg:px-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-belfort-red text-xs font-bold tracking-widest uppercase mb-2 block">Our Story</span>
+            <h2 class="text-3xl font-bold mb-6">A Vision of Integration</h2>
+            <div class="space-y-4 text-belfort-grey leading-relaxed">
+              <p>Belfort Integrated Services was born from a simple yet powerful observation: clients needed more than just isolated vendors; they needed a partner who could see the bigger picture.</p>
+              <p>Founded in Abuja, we started with a commitment to raise the standard of real estate management. We quickly realized that true asset optimization required expertise in maintenance, aesthetics, and technology. Thus, Belfort expanded into a holistic ecosystem.</p>
+              <p>Today, we are proud to be one of Nigeria's few truly integrated service providers, delivering consistent quality whether we are selling a penthouse, cleaning a factory, or automating a smart home.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="Office meeting" class="rounded-lg shadow-2xl">
+          </div>
+        </div>
+      </section>
+
+      <div class="bg-gray-50 py-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white p-10 shadow-sm border-t-4 border-belfort-red">
+            <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+            <p class="text-gray-600 leading-relaxed">To be the premier integrated services provider in West Africa, recognized for our ability to seamlessly blend diverse disciplines into creating exceptional value for our clients and communities.</p>
+          </div>
+          <div class="bg-white p-10 shadow-sm border-t-4 border-black">
+            <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+            <p class="text-gray-600 leading-relaxed">To deliver superior quality across Real Estate, Hygiene, Design, and Technology by leveraging our integrated expertise, fostering innovation, and maintaining an unwavering commitment to client satisfaction.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-black text-white pt-20 pb-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+            <p>&copy; 2024 Belfort Integrated Services. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+        const mobileMenu = document.getElementById('mobile-menu');
+        document.getElementById('mobile-menu-btn').onclick = () => mobileMenu.classList.remove('hidden', 'flex') || mobileMenu.classList.add('flex');
+        document.getElementById('close-menu-btn').onclick = () => mobileMenu.classList.add('hidden') || mobileMenu.classList.remove('flex');
+    </script>
+  </body>
+</html>

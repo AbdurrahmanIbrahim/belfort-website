@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Belfort Integrated Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              belfort: { red: '#be222e', black: '#000000', white: '#ffffff', grey: '#57565b', lightGrey: '#f8f8f8' }
+            },
+            fontFamily: { sans: ['Montserrat', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="font-sans antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md text-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex items-center justify-between h-20 md:h-24">
+          <a href="index.html" class="flex items-center space-x-2 group">
+            <div class="relative w-10 h-12">
+               <svg viewBox="0 0 100 120" class="w-full h-full drop-shadow-sm"><path d="M10 10 H90 V80 C90 105 50 120 50 120 C50 120 10 105 10 80 V10 Z" fill="#be222e" /><text x="50" y="85" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Montserrat">B</text></svg>
+            </div>
+            <div class="flex flex-col"><span class="text-2xl font-bold text-black">Belfort</span><span class="text-[10px] font-medium tracking-widest uppercase text-gray-500">Integrated Services</span></div>
+          </a>
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red py-2">Home</a>
+            <a href="about.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red py-2">About</a>
+            <a href="services.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red py-2">Services</a>
+            <a href="portfolio.html" class="nav-link text-sm font-semibold tracking-wide uppercase text-belfort-red py-2">Portfolio</a>
+            <a href="contact.html" class="nav-link text-sm font-semibold tracking-wide uppercase hover:text-belfort-red py-2">Contact</a>
+          </nav>
+          <div class="hidden md:block">
+            <a href="contact.html" class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-wider bg-belfort-red text-white hover:bg-[#a01d27] shadow-lg">Get A Quote</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-black"><i data-lucide="menu" class="w-7 h-7"></i></button>
+        </div>
+      </div>
+    </header>
+     <!-- Mobile Menu -->
+     <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden flex-col h-full justify-center px-8 space-y-8 transition-transform duration-300">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <a href="index.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">About</a>
+        <a href="services.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Services</a>
+        <a href="portfolio.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Portfolio</a>
+        <a href="contact.html" class="text-2xl font-bold text-white uppercase tracking-wider hover:text-belfort-red">Contact</a>
+    </div>
+
+    <main>
+      <div class="bg-black text-white pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h1>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of excellence across real estate, design, and facility management.</p>
+        </div>
+      </div>
+
+      <section class="py-20 px-6 md:px-12 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-belfort-red text-white shadow-lg" data-filter="all">All</button>
+            <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-gray-100 text-gray-500 hover:bg-gray-200" data-filter="Real Estate">Real Estate</button>
+            <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-gray-100 text-gray-500 hover:bg-gray-200" data-filter="Industrial Cleaning">Industrial Cleaning</button>
+            <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-gray-100 text-gray-500 hover:bg-gray-200" data-filter="Interiors">Interiors</button>
+          </div>
+
+          <!-- Project Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+            <div class="project-item group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2" data-category="Real Estate">
+              <div class="relative overflow-hidden h-64">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-black rounded-sm">2023</div>
+              </div>
+              <div class="p-6">
+                <div class="text-belfort-red text-xs font-bold uppercase tracking-widest mb-2">Real Estate</div>
+                <h3 class="text-xl font-bold mb-2 text-black">The Onyx Towers</h3>
+                <p class="text-gray-600 text-sm line-clamp-3 mb-4">A 15-story luxury residential complex featuring smart home integration.</p>
+              </div>
+            </div>
+
+            <div class="project-item group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2" data-category="Industrial Cleaning">
+              <div class="relative overflow-hidden h-64">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-black rounded-sm">2024</div>
+              </div>
+              <div class="p-6">
+                <div class="text-belfort-red text-xs font-bold uppercase tracking-widest mb-2">Industrial Cleaning</div>
+                <h3 class="text-xl font-bold mb-2 text-black">Apex Industrial Hub</h3>
+                <p class="text-gray-600 text-sm line-clamp-3 mb-4">Comprehensive facility management and cleaning for a 50,000sqm factory.</p>
+              </div>
+            </div>
+
+            <div class="project-item group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2" data-category="Interiors">
+              <div class="relative overflow-hidden h-64">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-black rounded-sm">2022</div>
+              </div>
+              <div class="p-6">
+                <div class="text-belfort-red text-xs font-bold uppercase tracking-widest mb-2">Interiors</div>
+                <h3 class="text-xl font-bold mb-2 text-black">Villa Serene Renovation</h3>
+                <p class="text-gray-600 text-sm line-clamp-3 mb-4">Complete interior overhaul of a diplomatic residence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black text-white pt-20 pb-10"><div class="max-w-7xl mx-auto text-center"><p>&copy; 2024 Belfort Integrated Services.</p></div></footer>
+
+    <script>
+      lucide.createIcons();
+      const mobileMenu = document.getElementById('mobile-menu');
+      document.getElementById('mobile-menu-btn').onclick = () => mobileMenu.classList.remove('hidden', 'flex') || mobileMenu.classList.add('flex');
+      document.getElementById('close-menu-btn').onclick = () => mobileMenu.classList.add('hidden') || mobileMenu.classList.remove('flex');
+
+      // Portfolio Filtering
+      const buttons = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.project-item');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class
+          buttons.forEach(b => {
+             b.classList.remove('bg-belfort-red', 'text-white', 'shadow-lg');
+             b.classList.add('bg-gray-100', 'text-gray-500');
+          });
+          // Add active class
+          btn.classList.remove('bg-gray-100', 'text-gray-500');
+          btn.classList.add('bg-belfort-red', 'text-white', 'shadow-lg');
+
+          const filter = btn.getAttribute('data-filter');
+          items.forEach(item => {
+             if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                 item.style.display = 'block';
+             } else {
+                 item.style.display = 'none';
+             }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
